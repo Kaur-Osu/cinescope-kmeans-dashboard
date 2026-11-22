@@ -9,8 +9,8 @@ from pathlib import Path
 # Seleccionar y cargar el dataset desde la carpeta del programa o Dashboard
 carpeta_proyecto = Path(__file__).resolve().parent
 posibles_csv = [
-    carpeta_proyecto / "tmdb_5000_movies.csv",
     carpeta_proyecto / "Dashboard" / "tmdb_5000_movies.csv",
+    carpeta_proyecto / "tmdb_5000_movies.csv",
 ]
 archivo_csv = next((ruta for ruta in posibles_csv if ruta.exists()), None)
 if archivo_csv is None:
@@ -18,6 +18,7 @@ if archivo_csv is None:
         "No se encontró tmdb_5000_movies.csv en la raíz del proyecto ni en Dashboard."
     )
 df = pd.read_csv(archivo_csv)
+print(f"Archivo CSV cargado: {archivo_csv}")
 
 # Mostrar los datos originales
 print("\nDatos originales:")
